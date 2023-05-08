@@ -4,6 +4,7 @@
 /*
  * 算法参考:
  * http://www.ruanyifeng.com/blog/2012/11/gaussian_blur.html
+ * https://blog.csdn.net/markl22222/article/details/10313565
  */
 
 

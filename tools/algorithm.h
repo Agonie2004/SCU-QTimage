@@ -8,6 +8,7 @@
 #include <QtMath>
 #include "gaussblur.h"
 //算法部分
+
 namespace  Algorithm {
 QImage GreyScale(QImage origin);  //灰度处理
 QImage Warm(int delta, QImage origin);//暖色调

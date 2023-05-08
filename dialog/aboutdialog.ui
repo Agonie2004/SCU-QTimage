@@ -79,7 +79,7 @@ QPushButton:pressed
 </string>
    </property>
    <property name="text">
-    <string>源码获取</string>
+    <string>开发历程</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">

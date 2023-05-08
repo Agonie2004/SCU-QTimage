@@ -17,7 +17,7 @@
 #include "../tools/algorithm.h"
 #include "../tools/gaussblur.h"
 #define WINDOW_TITLE    "SCU-QTimage"
-#define WINDOW_ERROR "SCU-QTimage"
+#define WINDOW_ERROR "ERROR"
 #define WINDOW_WARNING  "SCU-QTimage"
 #define WINDOW_ABOUT    "SCU-QTimage"
 
@@ -67,14 +67,17 @@ private slots:
     void on_doSimple_triggered();//简单平滑
     void on_doGauss_triggered();//高斯平滑
 
-
+    void update_stateBar();
 
 private:
 
     Ui::MainWindow  *ui;
     //左右两个图片
+    //QGraphicsScene是QT中用于管理图形视图的场景的类。
+    //QGraphicsScene继承自QGraphicsItem,用于组织和管理添加到其中的图形项。
     QGraphicsScene  *leftScene;
     QGraphicsScene  *rightScene;
+    //QGraphicsPixmapItem继承自QGraphicsItem,用于在QGraphicsScene中表示一个图像。它加载和显示一个QPixmap对象中的图像。
     QGraphicsPixmapItem* leftPixmapItem;
     QGraphicsPixmapItem* rightPixmapItem;
 

@@ -25,7 +25,7 @@ private:
     //用于存放高斯模糊所需的矩阵
     float *gs_matrix;
     //矩阵大小和一半长
-    int matrixSize,halfMatrixSize;
+    int matrixSize, halfMatrixSize;
     //两个参数
     int Radius;
     double  Sigma;

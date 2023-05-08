@@ -37,15 +37,15 @@ AboutDialog::~AboutDialog()
 }
 
 //三个button
-void AboutDialog::on_pushButton_2_clicked()
-{
-    QProcess::startDetached("explorer https://github.com/Agonie2004/SCU-QTimage/blob/main/owners.png");
-    //::startDetached("D://QT//1.00//qtimage-main//qtimage-main//res//member.png");
-}
-
 void AboutDialog::on_pushButton_clicked()
 {
     QProcess::startDetached("explorer https://github.com/Agonie2004/SCU-QTimage");
+}
+
+void AboutDialog::on_pushButton_2_clicked()
+{
+    QProcess::startDetached("explorer https://cs.scu.edu.cn/");
+    //::startDetached("D://QT//1.00//qtimage-main//qtimage-main//res//member.png");
 }
 
 

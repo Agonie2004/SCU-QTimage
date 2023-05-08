@@ -1,5 +1,4 @@
 ﻿#include "algorithm.h"
-#include "medianfilter.h"
 /*
  * 参考文献:
  * https://blog.csdn.net/Aidam_Bo/article/details/84391558
@@ -184,59 +183,3 @@ QImage Algorithm::Vertical(const QImage &origin)
     return *newImage;
 }
 
-
-/*****************************************************************************
- *                               简单平滑处理
- * kernel矩阵决定计算中相邻像素的影响程度
- * 然后使用滤波器进行计算
- * eg:
- *R = 20 102 99
- *    150 200 77
- *    170 210 105
- *Kenel = 0 2 0
- *        2 5 2
- *        0 2 0
- * r = ( (102*2) + (150*2) + (200*5) + (77*2) + (210*2) ) / (2+2+5+2+2) = 159
- * **************************************************************************/
-QImage Algorithm::SimpleSmooth(const QImage &origin)
-{
-    QImage *newImage = new QImage(origin);
-
-    int kernel[5][5] = {
-        {0,0,1,0,0},
-        {0,1,3,1,0},
-        {1,3,7,3,1},
-        {0,1,3,1,0},
-        {0,0,1,0,0}
-    };
-    int startKernel=2;
-    int sumKernel=27;
-    int r,g,b;
-    QColor color;
-
-    //起始点第3个像素点 结束点是倒数第3个像素点
-    for(int x=startKernel; x<newImage->width()-startKernel; ++x)
-    {
-        for (int y=startKernel; y<newImage->height()-startKernel; ++y)
-        {
-            r = g = b = 0;
-            for (int i=-startKernel; i<=startKernel; ++i)
-            {
-                for (int j=-startKernel; j<=startKernel; ++j)
-                {
-                    color = QColor(origin.pixel(x+i,y+j));
-                    r += color.red()*kernel[startKernel+i][startKernel+j];
-                    g += color.green()*kernel[startKernel+i][startKernel+j];
-                    b += color.blue()*kernel[startKernel+i][startKernel+j];
-                }
-            }
-            r = qBound(0, r/sumKernel, 255);
-            g = qBound(0, g/sumKernel, 255);
-            b = qBound(0, b/sumKernel, 255);
-
-            newImage->setPixel(x,y,qRgb(r,g,b));
-
-        }
-    }
-    return *newImage;
-}
