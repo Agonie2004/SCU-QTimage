@@ -44,7 +44,7 @@ void AboutDialog::on_pushButton_clicked()
 
 void AboutDialog::on_pushButton_2_clicked()
 {
-    QProcess::startDetached("explorer https://cs.scu.edu.cn/");
+    QProcess::startDetached("explorer https://github.com/Agonie2004/SCU-QTimage/blob/main/owners.md");
     //::startDetached("D://QT//1.00//qtimage-main//qtimage-main//res//member.png");
 }
 

@@ -38,5 +38,6 @@ FORMS    += mainwindow/mainwindow.ui \
 RESOURCES += \
     res/ImageDir.qrc
 
-RC_FILE = res/ico.rc
+RC_FILE = res/ico.rc \
+
 

@@ -16,18 +16,19 @@
 QImage Algorithm::GreyScale(QImage origin)
 {
     //以原图的大小生成一张图片
-    QImage *newImage = new QImage(origin.width(), origin.height(),QImage::Format_ARGB32);
+    QImage *newImage = new QImage(origin.width(), origin.height(),QImage::Format_ARGB32);  //获得原图片的宽度、高度和RGB值
 
-    QColor oldColor;
+    QColor oldColor;  //获得当前像素的RGB值
 
+    //遍历每个像素点
     for (int i=0; i<newImage->width(); ++i) {
         for (int j=0; j<newImage->height(); ++j) {
             //读取原图片的Rgb
-            oldColor = QColor(origin.pixel(i,j));
+            oldColor = QColor(origin.pixel(i,j));   //
             //计算公式
-            int x = (oldColor.red()*299+oldColor.green()*587+oldColor.blue()*114)/1000;
+            int x = (oldColor.red()*299+oldColor.green()*587+oldColor.blue()*114)/1000;  //直接代入公式
             //设置新图片的Rgb
-            newImage->setPixel(i,j,qRgb(x,x,x));
+            newImage->setPixel(i,j,qRgb(x,x,x));    //将r，g，b值都设置为x
         }
     }
     return *newImage;
@@ -41,7 +42,7 @@ QImage Algorithm::GreyScale(QImage origin)
  * **************************************************************************/
 QImage Algorithm::Warm(int delta, QImage origin)
 {
-    QImage *newImage = new QImage(origin.width(), origin.height(),QImage::Format_ARGB32);
+    QImage *newImage = new QImage(origin.width(), origin.height(),QImage::Format_ARGB32);  //QImage::Format_ARGB32
 
     QColor oldColor;
     int r, g, b;
@@ -161,7 +162,9 @@ QImage Algorithm::Horizontal(const QImage &origin)
 /*****************************************************************************
  *                                   垂直翻转
  * 同理水平翻转
+ *  * 上下任意一点替换为height-j-1   左右方向不变
  * **************************************************************************/
+
 QImage Algorithm::Vertical(const QImage &origin)
 {
     QImage *newImage = new QImage(QSize(origin.width(), origin.height()),

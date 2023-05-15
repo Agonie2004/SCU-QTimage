@@ -67,7 +67,6 @@ private slots:
     void on_doSimple_triggered();//简单平滑
     void on_doGauss_triggered();//高斯平滑
 
-    void update_stateBar();
 
 private:
 

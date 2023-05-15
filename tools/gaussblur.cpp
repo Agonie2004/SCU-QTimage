@@ -94,6 +94,8 @@ QImage GaussBlur::StartGauss(const QImage& oldImage)
             sumRed = sumGreen = sumBlue = 0.0f;
             for (int k = -halfMatrixSize; k <= halfMatrixSize; ++k)
             {
+                //将 "点" 左右两边的取出来与 矩阵做*计算
+                //取出需要的点纵坐标
                 _y = GetIndex(j + k, newImage.height());
                 QColor color(oldImage.pixel(i, _y));
                 sumRed += color.red() * gs_matrix[unsigned(k + halfMatrixSize)];
