@@ -480,7 +480,7 @@ void MainWindow::on_doCool_triggered()
     QPixmap rightImage = rightPixmapItem->pixmap(); //创建一个新的QPixmap对象
 
     //效果处理 色素变幻 调用Algorithm::Cool()
-    QImage newImage = Algorithm::Cool(30, rightImage.toImage());
+    QImage newImage = Algorithm::Cool(10, rightImage.toImage());
 
     rightImage.convertFromImage(newImage);
     updateRightImage(rightImage);
@@ -495,7 +495,7 @@ void MainWindow::on_doWarm_triggered()
     QPixmap rightImage = rightPixmapItem->pixmap();
 
     //效果处理 色素变幻 调用Algorithm::Warm()
-    QImage newImage = Algorithm::Warm(30, rightImage.toImage());
+    QImage newImage = Algorithm::Warm(10, rightImage.toImage());
 
     rightImage.convertFromImage(newImage);
     updateRightImage(rightImage);
